@@ -1,10 +1,29 @@
-const Login = () => {
+import { useNavigate, Navigate } from 'react-router-dom';
+import * as authService from '../../services/authService';
+
+const Login = ({
+    onLogin
+}) => {
+
+    const navigate = useNavigate();
+
+    const onLoginHandler = (e) => {
+        e.preventDefault();
+
+        let formData = new FormData(e.currentTarget);
+
+        let email = formData.get('email');
+        authService.login(email);
+        onLogin(email);
+        navigate('/');
+    };
+
 
     return (
         <div class="wrapper">
-            <form class="form-signin">
+            <form class="form-signin" onSubmit={onLoginHandler} method='POST'>
                 <h2 class="form-signin-heading">Please login</h2>
-                <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus="" />
+                <input type="text" class="form-control" name="email" placeholder="Email" required="" autofocus="" />
                 <input type="password" class="form-control" name="password" placeholder="Password" required="" />
                 <label class="checkbox">
                     <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe" /> Remember me

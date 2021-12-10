@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({
+    isAuthenticated,
+    user,
+}) => {
+
+
+
     return (
         <header className="top-header">
             <nav className="navbar header-nav navbar-expand-lg">
@@ -20,6 +26,11 @@ const Header = () => {
                             <li><Link className="nav-link" to="/donate">Donate</Link></li>
                             <li><Link className="nav-link" to="/testimonial">Testimonial</Link></li>
                             <li><Link className="nav-link" to="/contact">Contact</Link></li>
+                        </ul>
+                        <ul className="navbar-nav">
+                            <li><Link className="nav-link" to="/login">Login</Link></li>
+                            <li><Link className="nav-link" to="/register">Register</Link></li>
+                            <li><Link className="nav-link" to="/logout">Logout</Link></li>
                         </ul>
                     </div>
                 </div>

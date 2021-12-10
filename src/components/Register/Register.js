@@ -4,7 +4,7 @@ const Register = () => {
         <div class="wrapper">
             <form class="form-register">
                 <h2 class="form-register-heading">Register</h2>
-                <input type="text" class="form-control" name="email" placeholder="Email Address" required="" autofocus="" />
+                <input type="text" class="form-control" name="email" placeholder="Email" required="" autofocus="" />
                 <input type="password" class="form-control" name="password" placeholder="Password" required="" />
                 <input type="password" class="form-control" name="repassword" placeholder="Re-Password" required="" />
                 <label class="checkbox">
