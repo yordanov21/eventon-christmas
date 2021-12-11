@@ -5,9 +5,9 @@ export const getAll = async () => {
     let response = await fetch(`${baseUrl}/christmasCards`)
 
     let christmasCards = await response.json();
-
+    console.log(christmasCards);
     let result = Object.values(christmasCards);
-
+    console.log(result);
     return result;
 };
 

@@ -1,17 +1,8 @@
-import { useEffect, useState } from "react";
-import ChristmasCard from "./ChristmasCard";
+import { Routes, Route } from "react-router-dom";
 
-import * as christamsCardService from '../../services/christmasCardService';
+import ChristmasCardList from "../ChristmasCardList";
 
 const Donate = () => {
-    const [christmasCards, setChristmasCards] = useState([]);
-
-    useEffect(() => {
-        christamsCardService.getAll()
-            .then(result => {
-                setChristmasCards(result)
-            });
-    }, []);
 
     return (
         <div id="donate" className="gallery-box" style={{ background: '#f7f7f7' }}>
@@ -26,9 +17,9 @@ const Donate = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <ul className="popup-gallery clearfix">
-                        {christmasCards.map(x => <ChristmasCard key={x._id} card={x} />)}
-                    </ul>
+                    <Routes>
+                        <Route path="/" element={<ChristmasCardList />} />
+                    </Routes>
                 </div>
             </div>
         </div>

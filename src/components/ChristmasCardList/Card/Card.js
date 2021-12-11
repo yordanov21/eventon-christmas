@@ -1,4 +1,6 @@
-const ChristmasCard = ({
+//import { Link } from "react-router-dom";
+
+const Card = ({
     card
 }) => {
 
@@ -14,4 +16,4 @@ const ChristmasCard = ({
     );
 };
 
-export default ChristmasCard;
+export default Card;
