@@ -33,12 +33,12 @@ const Header = ({
             <nav className="navbar header-nav navbar-expand-lg">
                 <div className="container">
                     <Link to="/" className="navbar-brand" ><img src="images/logo.png" alt="image" /></Link>
-                    {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd"
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd"
                         aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
                         <span></span>
                         <span></span>
                         <span></span>
-                    </button> */}
+                    </button>
                     <div className="collapse navbar-collapse justify-content-end" id="navbar-wd">
                         <ul className="navbar-nav">
                             <li><Link className="nav-link active" to="/">Home</Link></li>

@@ -1,6 +1,22 @@
+import { useEffect, useState } from "react";
+import ChristmasCard from "./ChristmasCard";
+
+import * as christamsCardService from '../../services/christmasCardService';
+
 const Donate = () => {
+    const [christmasCards, setChristmasCards] = useState([]);
+
+    useEffect(() => {
+        christamsCardService.getAll()
+            .then(result => {
+                setChristmasCards(result)
+            });
+    }, []);
+
     return (
         <div id="donate" className="gallery-box" style={{ background: '#f7f7f7' }}>
+            <p>empty</p>
+            <p></p>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
@@ -11,60 +27,7 @@ const Donate = () => {
                 </div>
                 <div className="row">
                     <ul className="popup-gallery clearfix">
-                        <li>
-                            <a href="images/d1.png">
-                                <img className="img-fluid" src="images/d1.png" alt="single image" />
-                                <span className="overlay"><i className="fa fa-picture-o" aria-hidden="true"></i></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/d2.png">
-                                <img className="img-fluid" src="images/d2.png" alt="single image" />
-                                <span className="overlay"><i className="fa fa-picture-o" aria-hidden="true"></i></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/d3.png">
-                                <img className="img-fluid" src="images/d3.png" alt="single image" />
-                                <span className="overlay"><i className="fa fa-picture-o" aria-hidden="true"></i></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/d4.png">
-                                <img className="img-fluid" src="images/d4.png" alt="single image" />
-                                <span className="overlay"><i className="fa fa-picture-o" aria-hidden="true"></i></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/d1.png">
-                                <img className="img-fluid" src="images/d1.png" alt="single image" />
-                                <span className="overlay"><i className="fa fa-picture-o" aria-hidden="true"></i></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/d2.png">
-                                <img className="img-fluid" src="images/d2.png" alt="single image" />
-                                <span className="overlay"><i className="fa fa-picture-o" aria-hidden="true"></i></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/d3.png">
-                                <img className="img-fluid" src="images/d3.png" alt="single image" />
-                                <span className="overlay"><i className="fa fa-picture-o" aria-hidden="true"></i></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/d4.png">
-                                <img className="img-fluid" src="images/d4.png" alt="single image" />
-                                <span className="overlay"><i className="fa fa-picture-o" aria-hidden="true"></i></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="images/d1.png">
-                                <img className="img-fluid" src="images/d1.png" alt="single image" />
-                                <span className="overlay"><i className="fa fa-picture-o" aria-hidden="true"></i></span>
-                            </a>
-                        </li>
+                        {christmasCards.map(x => <ChristmasCard key={x._id} card={x} />)}
                     </ul>
                 </div>
             </div>

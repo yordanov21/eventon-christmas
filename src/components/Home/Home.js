@@ -1,6 +1,7 @@
 const Home = () => {
     return (
         <>
+            <p></p>
             <div className="ulockd-home-slider">
                 <div className="container-fluid">
                     <div className="row">
