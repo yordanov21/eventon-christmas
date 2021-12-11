@@ -1,6 +1,6 @@
 //import { Link } from "react-router-dom";
 
-const Card = ({
+const ChristmasCard = ({
     card
 }) => {
 
@@ -16,4 +16,4 @@ const Card = ({
     );
 };
 
-export default Card;
+export default ChristmasCard;

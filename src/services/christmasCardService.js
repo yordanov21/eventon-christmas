@@ -1,5 +1,5 @@
-const baseUrl = 'http://localhost:3030/data';
-//const baseUrl = 'http://localhost:3030/jsonstore';
+//const baseUrl = 'http://localhost:3030/data';
+const baseUrl = 'http://localhost:3030/jsonstore';
 
 export const getAll = async () => {
     let response = await fetch(`${baseUrl}/christmasCards`)
@@ -17,7 +17,7 @@ export const create = async (cardData) => {
         headers: {
             'content-type': 'application/json',
         },
-        body: JSON.stringify({ cardData })
+        body: JSON.stringify({ ...cardData })
     });
 
     let result = await response.json();

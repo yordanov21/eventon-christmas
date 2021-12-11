@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Card from "./Card";
+import Card from "./ChristmasCard";
 import * as christmasCardService from '../../services/christmasCardService';
 
 const ChristmasCardList = () => {
