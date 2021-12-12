@@ -17,7 +17,7 @@ const Login = ({
 
         authService.login(email, password).
             then(authData => {
-                console.log('Login');
+                console.log('Logged in');
                 console.log(authData);
             })
 
