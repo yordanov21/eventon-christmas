@@ -13,7 +13,14 @@ const Login = ({
         let formData = new FormData(e.currentTarget);
 
         let email = formData.get('email');
-        authService.login(email);
+        let password = formData.get('password');
+
+        authService.login(email, password).
+            then(authData => {
+                console.log('Login');
+                console.log(authData);
+            })
+
         onLogin(email);
         navigate('/');
     };
