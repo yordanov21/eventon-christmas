@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import * as authService from './services/authService';
+import { AuthContext } from './contexts/AuthContext';
 import Header from "./components/Header";
 import Home from './components/Home';
 import Deals from './components/Deals';
@@ -15,55 +15,45 @@ import Logout from './components/Logout';
 import Register from "./components/Register";
 import Footer from "./components/Footer";
 
-import { isAuthenticated } from './services/authService';
+
 
 function App() {
-	const [userInfo, setUserInfo] = useState({ isAuthenticated: false, user: '' });
 
-	useEffect(() => {
-		let user = authService.getUser();
+	const [user, setUser] = useState({
+		_id: "",
+		email: "",
+		accessToken: "",
+	});
 
-		setUserInfo({
-			isAuthenticated: Boolean(user),
-			user: user,
-		})
-
-	}, []);
-
-	const onLogin = (email) => {
-		setUserInfo({
-			isAuthenticated: true,
-			user: email,
-		})
-
+	const onLogin = (authData) => {
+		setUser(authData);
 	};
 
 	const onLogout = () => {
-		setUserInfo({
-			isAuthenticated: false,
-			user: null
-		})
+
 	};
 
 	return (
-		<main id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
-			<Header {...userInfo} />
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/login" element={<Login onLogin={onLogin} />} />
-				<Route path="/logout" element={<Logout onLogout={onLogout} />} />
-				<Route path="/register" element={<Register />} />
-				<Route path="/deals" element={<Deals />} />
-				<Route path="/donate/*" element={<Donate />} />
-				<Route path="/create" element={<Create />} />
-				<Route path="/testimonial" element={<Participants />} />
-				<Route path="/contact" element={<Contact />} />
-				<Route path="/details/:cardId" element={<Details />} />
+		<AuthContext.Provider value={true}>
+			<main id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
+				<Header email={user.email} />
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/login" element={<Login onLogin={onLogin} />} />
+					<Route path="/logout" element={<Logout onLogout={onLogout} />} />
+					<Route path="/register" element={<Register />} />
+					<Route path="/deals" element={<Deals />} />
+					<Route path="/donate/*" element={<Donate />} />
+					<Route path="/create" element={<Create />} />
+					<Route path="/testimonial" element={<Participants />} />
+					<Route path="/contact" element={<Contact />} />
+					<Route path="/details/:cardId" element={<Details />} />
 
-			</Routes>
-			<Footer />
+				</Routes>
+				<Footer />
 
-		</main>
+			</main>
+		</AuthContext.Provider>
 	);
 }
 

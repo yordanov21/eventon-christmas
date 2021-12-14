@@ -17,12 +17,15 @@ const Login = ({
 
         authService.login(email, password).
             then(authData => {
-                console.log('Logged in');
-                console.log(authData);
-            })
 
-        onLogin(email);
-        navigate('/');
+                onLogin(authData);
+
+                navigate('/');
+            })
+            .catch(err => {
+                // TODO: show notification
+                console.log(err);
+            })
     };
 
 
