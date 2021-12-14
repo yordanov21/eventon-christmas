@@ -25,22 +25,22 @@ function App() {
 		accessToken: "",
 	});
 
-	const onLogin = (authData) => {
+	const login = (authData) => {
 		setUser(authData);
 	};
 
 	const onLogout = () => {
-
+		//TODO impelent
 	};
 
 	return (
-		<AuthContext.Provider value={true}>
+		<AuthContext.Provider value={{ user, login }}>
 			<main id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
-				<Header email={user.email} />
+				<Header />
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/login" element={<Login onLogin={onLogin} />} />
-					<Route path="/logout" element={<Logout onLogout={onLogout} />} />
+					<Route path="/login" element={<Login />} />
+					<Route path="/logout" element={<Logout />} />
 					<Route path="/register" element={<Register />} />
 					<Route path="/deals" element={<Deals />} />
 					<Route path="/donate/*" element={<Donate />} />

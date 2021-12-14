@@ -19,7 +19,7 @@ export const login = async (email, password) => {
 };
 
 export const logout = () => {
-    localStorage.removeItem('email');
+    fetch(`${baseUrl}/users/logout`);
 };
 
 export const getUser = () => {
