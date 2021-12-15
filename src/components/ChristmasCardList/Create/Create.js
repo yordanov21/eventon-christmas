@@ -1,7 +1,10 @@
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as christmasCardService from '../../../services/christmasCardService';
+import { AuthContext } from '../../../contexts/AuthContext';
 
 const Create = () => {
+    const { user } = useContext(AuthContext);
 
     // for redirect 
     const navigate = useNavigate();
@@ -22,7 +25,7 @@ const Create = () => {
             description,
             price,
             purchases,
-        })
+        }, user.accessToken)
             .then(result => {
                 navigate('/donate');
             })
