@@ -14,10 +14,7 @@ const Details = () => {
 
     return (
         <section id="details-page" className="details">
-            <h1>dsfdff</h1>
-            <h1>dsfdff</h1>
-            <h1>dsfdff</h1>
-            <h1>dsfdff</h1>
+
             <div className="pet-information">
                 <h3>Name: {card.name}</h3>
                 <p className="img"><img src={card.imageUrl} /></p>
@@ -26,10 +23,7 @@ const Details = () => {
 
                     <a className="button" href="#">Edit</a>
                     <a className="button" href="#">Delete</a>
-
-
                     <a className="button" href="#">Buy</a>
-
 
                     <div className="likes">
                         <img className="hearts" src="/images/heart.png" />
