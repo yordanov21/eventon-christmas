@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from 'react-router-dom';
+import { AuthContext } from "../../contexts/AuthContext";
 import * as cardService from '../../services/christmasCardService';
 
 const Details = () => {
-
+    const { user } = useContext(AuthContext);
     const [card, setCard] = useState({});
     let { cardId } = useParams();
 
@@ -12,6 +13,14 @@ const Details = () => {
         setCard(cardResult);
     }, []);
 
+    const ownerButtons = (
+        <>
+            <a className="button" href="#">Edit</a>
+            <a className="button" href="#">Delete</a>
+        </>
+    );
+
+    const userButtons = <a className="button" href="#">Buy</a>;
     return (
         <section id="details-page" className="details">
 
@@ -20,11 +29,10 @@ const Details = () => {
                 <p className="img"><img src={card.imageUrl} /></p>
                 <p className="type">Price: {card.price}</p>
                 <div className="actions">
-
-                    <a className="button" href="#">Edit</a>
-                    <a className="button" href="#">Delete</a>
-                    <a className="button" href="#">Buy</a>
-
+                    {user._id && (user._id === card._ownerId
+                        ? ownerButtons
+                        : userButtons
+                    )}
                     <div className="likes">
                         <img className="hearts" src="/images/heart.png" />
                         <span id="total-likes">People buy this card: {card.purchases}</span>
