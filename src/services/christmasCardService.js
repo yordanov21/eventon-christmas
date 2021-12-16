@@ -26,6 +26,15 @@ export const create = async (cardData, token) => {
     return result;
 };
 
+export const destroy = (cardId, token) => {
+    return fetch(`${baseUrl}/christmasCards/${cardId}`, {
+        method: 'DELETE',
+        headers: {
+            'X-Authorization': token
+        }
+    }).then(res => res.json());
+};
+
 export const getOne = async (cardId) => {
     let response = await fetch(`${baseUrl}/christmasCards/${cardId}`)
 

@@ -1,9 +1,10 @@
 import { useEffect, useState, useContext } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from "../../contexts/AuthContext";
 import * as cardService from '../../services/christmasCardService';
 
 const Details = () => {
+    const navigate = useNavigate();
     const { user } = useContext(AuthContext);
     const [card, setCard] = useState({});
     let { cardId } = useParams();
@@ -13,10 +14,22 @@ const Details = () => {
         setCard(cardResult);
     }, []);
 
+    const deleteHandler = (e) => {
+        e.preventDefault();
+
+        cardService.destroy(cardId, user.accessToken)
+            .then(() => {
+                navigate('/donate');
+            })
+        // .finally(() => {
+        //     setShowDeleteDialog(false);
+        // });
+    };
+
     const ownerButtons = (
         <>
             <a className="button" href="#">Edit</a>
-            <a className="button" href="#">Delete</a>
+            <a className="button" href="#" onClick={deleteHandler}>Delete</a>
         </>
     );
 
