@@ -9,9 +9,11 @@ const Details = () => {
     const [card, setCard] = useState({});
     let { cardId } = useParams();
 
-    useEffect(async () => {
-        let cardResult = await cardService.getOne(cardId)
-        setCard(cardResult);
+    useEffect(() => {
+        cardService.getOne(cardId)
+            .then(cardResult => {
+                setCard(cardResult);
+            })
     }, []);
 
     const deleteHandler = (e) => {
