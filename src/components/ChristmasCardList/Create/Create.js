@@ -16,7 +16,7 @@ const Create = () => {
         let description = formData.get('description');
         let imageUrl = formData.get('imageUrl');
         let price = formData.get('price');
-        let purchases = 0;
+        let purchases = [];
 
         christmasCardService.create({
             name,

@@ -1,8 +1,11 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from 'react-router-dom';
+import { Button } from "react-bootstrap";
+
 import { useAuthContext } from "../../contexts/AuthContext";
 import * as cardService from '../../services/christmasCardService';
 import ConfirmDialog from '../Common/ConfirmDialog';
+
 
 const Details = () => {
     const navigate = useNavigate();
@@ -44,7 +47,23 @@ const Details = () => {
         </>
     );
 
-    const userButtons = <a className="button" href="#">Buy</a>;
+    const buyCard = () => {
+        // TODO: add check if buys should limited
+
+        let purchases = [...card.purchases, user._id];
+        let buyedCard = { ...card, purchases };
+
+        cardService.buy(cardId, buyedCard, user.accessToken)
+            .then(resData => {
+                console.log(resData);
+                setCard(state => ({
+                    ...state,
+                    purchases
+                }))
+            })
+    }
+
+    const userButtons = <Button className="button" onClick={buyCard}>Buy</Button>;
     return (
         <>
             <ConfirmDialog show={showDeleteDialog} onClose={() => { setShowDeleteDialog(false) }} onSave={deleteHandler} />
@@ -53,7 +72,7 @@ const Details = () => {
                 <div className="pet-information">
                     <h3>Name: {card.name}</h3>
                     <p className="img"><img src={card.imageUrl} /></p>
-                    <p className="type">Price: {card.price}</p>
+                    <p className="type">Price: {card.price} $</p>
                     <div className="actions">
                         {user._id && (user._id === card._ownerId
                             ? ownerButtons
@@ -61,7 +80,8 @@ const Details = () => {
                         )}
                         <div className="likes">
                             <img className="hearts" src="/images/heart.png" />
-                            <span id="total-likes">People buy this card: {card.purchases}</span>
+                            <span id="total-likes">People buy this card: {card.purchases?.length || 0}</span>
+                            <span id="total-ammount">Money collect: {(card.purchases?.length || 0) * card.price} $</span>
                         </div>
 
                     </div>

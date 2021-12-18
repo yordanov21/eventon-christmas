@@ -37,3 +37,16 @@ export const getOne = async (cardId) => {
 
     return cards;
 };
+
+export const buy = (cardId, card, token) => {
+    return fetch(`${baseUrl}/christmasCards/${cardId}`, {
+        method: 'PUT',
+        headers: {
+            'X-Authorization': token,
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+            card
+        })
+    }).then(res => res.json());
+};
