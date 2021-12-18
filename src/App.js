@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { AuthContext } from './contexts/AuthContext';
+import { useLocalStorage } from './hooks/useLocalStorage';
 import Header from "./components/Header";
 import Home from './components/Home';
 import Deals from './components/Deals';
@@ -19,7 +20,7 @@ import Footer from "./components/Footer";
 
 function App() {
 
-	const [user, setUser] = useState({
+	const [user, setUser] = useLocalStorage('user', {
 		_id: "",
 		email: "",
 		accessToken: "",

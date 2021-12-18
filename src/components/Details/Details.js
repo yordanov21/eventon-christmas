@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from "../../contexts/AuthContext";
 import * as cardService from '../../services/christmasCardService';
 
@@ -14,7 +14,7 @@ const Details = () => {
             .then(cardResult => {
                 setCard(cardResult);
             })
-    }, []);
+    }, [cardId]);
 
     const deleteHandler = (e) => {
         e.preventDefault();
@@ -30,7 +30,7 @@ const Details = () => {
 
     const ownerButtons = (
         <>
-            <a className="button" href="#">Edit</a>
+            <Link className="button" to="edit">Edit</Link>
             <a className="button" href="#" onClick={deleteHandler}>Delete</a>
         </>
     );
