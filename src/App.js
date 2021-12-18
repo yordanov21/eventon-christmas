@@ -16,26 +16,25 @@ import Logout from './components/Logout';
 import Register from "./components/Register";
 import Footer from "./components/Footer";
 
-
+const initialAuthState = {
+	_id: "",
+	email: "",
+	accessToken: "",
+}
 
 function App() {
-
-	const [user, setUser] = useLocalStorage('user', {
-		_id: "",
-		email: "",
-		accessToken: "",
-	});
+	const [user, setUser] = useLocalStorage('user', initialAuthState);
 
 	const login = (authData) => {
 		setUser(authData);
 	};
 
-	const onLogout = () => {
-		//TODO impelent
+	const logout = () => {
+		setUser(initialAuthState);
 	};
 
 	return (
-		<AuthContext.Provider value={{ user, login }}>
+		<AuthContext.Provider value={{ user, login, logout }}>
 			<main id="home" data-spy="scroll" data-target="#navbar-wd" data-offset="98">
 				<Header />
 				<Routes>
