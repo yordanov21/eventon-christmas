@@ -17,9 +17,8 @@ const Donate = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <Routes>
-                        <Route path="/" element={<ChristmasCardList />} />
-                    </Routes>
+                    <ChristmasCardList />
+
                 </div>
             </div>
         </div>

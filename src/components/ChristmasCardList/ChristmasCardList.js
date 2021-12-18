@@ -13,6 +13,9 @@ const ChristmasCardList = () => {
                 console.log(result)
                 setCards(result)
             })
+            .catch(err => {
+                console.log('Error: ', err);
+            })
     }, []);
 
     return (
