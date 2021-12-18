@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-// persistence of user's data
+// persistence of user's data (hook)
 export const useLocalStorage = (key, initialValue) => {
     const [state, setState] = useState(() => {
         try {

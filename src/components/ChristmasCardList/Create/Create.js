@@ -1,11 +1,10 @@
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as christmasCardService from '../../../services/christmasCardService';
-import { AuthContext } from '../../../contexts/AuthContext';
+import { useAuthContext } from '../../../contexts/AuthContext';
 
 const Create = () => {
-    const { user } = useContext(AuthContext);
-
+    const { user } = useAuthContext();
     // for redirect 
     const navigate = useNavigate();
 

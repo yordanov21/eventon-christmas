@@ -14,6 +14,8 @@ import Logout from './components/Logout';
 import Register from "./components/Register";
 import Footer from "./components/Footer";
 
+//import 'bootstrap/dist/css/bootstrap.min.css';
+
 function App() {
 	return (
 		<AuthProvider>
