@@ -1,25 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Button } from "react-bootstrap";
 
 import { useAuthContext } from "../../contexts/AuthContext";
 import * as cardService from '../../services/christmasCardService';
 import ConfirmDialog from '../Common/ConfirmDialog';
+import useCardState from '../../hooks/useCardState';
 
 
 const Details = () => {
     const navigate = useNavigate();
     const { user } = useAuthContext();
-    const [card, setCard] = useState({});
-    const [showDeleteDialog, setShowDeleteDialog] = useState(false);
     let { cardId } = useParams();
+    const [card, setCard] = useCardState(cardId);
+    const [showDeleteDialog, setShowDeleteDialog] = useState(false);
 
-    useEffect(() => {
-        cardService.getOne(cardId)
-            .then(cardResult => {
-                setCard(cardResult);
-            })
-    }, [cardId]);
 
     const deleteHandler = (e) => {
         e.preventDefault();
@@ -42,7 +37,7 @@ const Details = () => {
 
     const ownerButtons = (
         <>
-            <Link className="button" to="edit">Edit</Link>
+            <Link className="button" to={`/edit/${cardId}`}>Edit</Link>
             <a className="button" href="#" onClick={deleteClickHandler}>Delete</a>
         </>
     );

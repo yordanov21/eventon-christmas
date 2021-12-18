@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Deals from './components/Deals';
 import Donate from './components/Donate';
 import Create from './components/ChristmasCardList/Create';
+import Edit from './components/ChristmasCardList/Edit';
 import Details from './components/Details';
 import Participants from './components/Participants';
 import Contact from './components/Contact';
@@ -32,6 +33,7 @@ function App() {
 						<Route path="/donate/*" element={<Donate />} />
 						<Route path="/create" element={<Create />} />
 						<Route path="/testimonial" element={<Participants />} />
+						<Route path="/edit/:cardId" element={<Edit />} />
 						<Route path="/contact" element={<Contact />} />
 						<Route path="/details/:cardId" element={<Details />} />
 
