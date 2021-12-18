@@ -6,6 +6,7 @@ import useCardState from '../../../hooks/useCardState';
 import { Alert } from 'react-bootstrap';
 
 const Edit = () => {
+    const navigate = useNavigate();
     const { cardId } = useParams();
     const [errors, setErrors] = useState({ name: null });
     const [card, setCard] = useCardState(cardId);
@@ -14,7 +15,10 @@ const Edit = () => {
     const onchristmasCardEditHandler = (e) => {
         e.preventDefault();
 
-        console.log('submit');
+        let cardData = Object.fromEntries(new FormData(e.currentTarget))
+        console.log(cardData);
+        christmasCardService.update(card._id, cardData);
+        navigate('/donate');
     }
 
     const nameChangeHandler = (e) => {

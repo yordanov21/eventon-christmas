@@ -1,9 +1,9 @@
-import { request } from './requester'
+import * as request from './requester'
 
 const baseUrl = 'http://localhost:3030/data';
 //const baseUrl = 'http://localhost:3030/jsonstore';
 
-export const getAll = () => request(`${baseUrl}/christmasCards`);
+export const getAll = () => request.get(`${baseUrl}/christmasCards`);
 
 
 export const create = async (cardData, token) => {
@@ -20,6 +20,8 @@ export const create = async (cardData, token) => {
 
     return result;
 };
+
+export const update = (cardId, cardData) => request.put(`${baseUrl}/christmasCards/${cardId}`, cardData);
 
 export const destroy = (cardId, token) => {
     return fetch(`${baseUrl}/christmasCards/${cardId}`, {
