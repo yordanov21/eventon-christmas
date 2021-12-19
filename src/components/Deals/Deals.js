@@ -1,5 +1,25 @@
+import { useEffect, useState } from "react";
+import * as christmasCardService from '../../services/christmasCardService';
+
+import ChristmasCardList from "../ChristmasCardList";
+
+
 const Deals = () => {
+    const [christmasCards, setCards] = useState([]);
+
+    useEffect(() => {
+        christmasCardService.getBestCard()
+            .then(result => {
+                console.log('Cards:');
+                console.log(result)
+                setCards(result)
+            })
+            .catch(err => {
+                console.log('Error: ', err);
+            })
+    }, []);
     return (
+
         <div id="b-deals" className="services-box main-timeline-box">
             <div className="container">
                 <div className="row">
@@ -11,7 +31,8 @@ const Deals = () => {
                 </div>
 
                 <div className="row">
-                    <div className="col-lg-6 col-sm-6">
+
+                    {/* <div className="col-lg-6 col-sm-6">
                         <figure className="effect-service">
                             <img src="images/d1.png" alt="" />
                             <figcaption>
@@ -50,6 +71,10 @@ const Deals = () => {
                                 <a href="#">View more</a>
                             </figcaption>
                         </figure>
+                    </div> */}
+
+                    <div className="col-lg-6 col-sm-6">
+                        <ChristmasCardList christmasCards={christmasCards} />
                     </div>
 
                 </div>

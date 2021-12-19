@@ -1,8 +1,23 @@
-import { Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import * as christmasCardService from '../../services/christmasCardService';
 
 import ChristmasCardList from "../ChristmasCardList";
 
 const Donate = () => {
+
+    const [christmasCards, setCards] = useState([]);
+
+    useEffect(() => {
+        christmasCardService.getAll()
+            .then(result => {
+                console.log('Cards:');
+                console.log(result)
+                setCards(result)
+            })
+            .catch(err => {
+                console.log('Error: ', err);
+            })
+    }, []);
 
     return (
         <div id="donate" className="gallery-box" style={{ background: '#f7f7f7' }}>
@@ -17,7 +32,7 @@ const Donate = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <ChristmasCardList />
+                    <ChristmasCardList christmasCards={christmasCards} />
 
                 </div>
             </div>

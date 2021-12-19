@@ -2,22 +2,9 @@ import { useEffect, useState } from "react";
 import Card from "./ChristmasCard";
 import * as christmasCardService from '../../services/christmasCardService';
 
-const ChristmasCardList = () => {
-
-    const [christmasCards, setCards] = useState([]);
-
-    useEffect(() => {
-        christmasCardService.getAll()
-            .then(result => {
-                console.log('Cards:');
-                console.log(result)
-                setCards(result)
-            })
-            .catch(err => {
-                console.log('Error: ', err);
-            })
-    }, []);
-
+const ChristmasCardList = ({
+    christmasCards
+}) => {
     return (
         <>
             {

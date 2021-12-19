@@ -5,6 +5,18 @@ const baseUrl = 'http://localhost:3030/data';
 
 export const getAll = () => request.get(`${baseUrl}/christmasCards`);
 
+export const getBestCard = () => {
+    let query = encodeURIComponent(`price>20`);
+
+    return request.get(`${baseUrl}/christmasCards?where=${query}`);
+};
+
+export const getMyCard = (ownerId) => {
+    let query = encodeURIComponent(`_ownerId="${ownerId}"`);
+
+    return request.get(`${baseUrl}/christmasCards?where=${query}`);
+};
+
 
 export const create = async (cardData, token) => {
     let response = await fetch(`${baseUrl}/christmasCards`, {
