@@ -20,8 +20,8 @@ const Details = () => {
 
     useEffect(() => {
         buyService.getCount(cardId)
-            .then(buyCount => {
-                setCard(state => ({ ...state, purchases: buyCount }))
+            .then(buysCount => {
+                setCard(state => ({ ...state, purchases: buysCount }))
             })
     }, [])
 
@@ -53,13 +53,15 @@ const Details = () => {
     );
 
     const buyCard = () => {
-        // TODO: add check if buys should limited
+        if (user._id === card._ownerId) {
+            return;
+        }
 
 
 
         buyService.buy(user._id, cardId)
-            .then(() => {
-                setCard(state => ({ ...state, purchases: [...state.purchases + user._id] }));
+            .then((res) => {
+                setCard(state => ({ ...state, purchases: [...state.purchases, user._id] }));
                 addNotification('Thank you for your donate. You sucsessfuly buy a christmas card', types.success);
             })
 
