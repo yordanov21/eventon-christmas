@@ -17,6 +17,12 @@ export const getMyCard = (ownerId) => {
     return request.get(`${baseUrl}/christmasCards?where=${query}`);
 };
 
+export const getBuyedCard = (ownerId) => {
+    let query = encodeURIComponent(`purchases="${ownerId}"`);
+
+    return request.get(`${baseUrl}/christmasCards?where=${query}`);
+};
+
 
 export const create = async (cardData, token) => {
     let response = await fetch(`${baseUrl}/christmasCards`, {
