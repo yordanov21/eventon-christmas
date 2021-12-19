@@ -5,12 +5,14 @@ import { Button } from "react-bootstrap";
 import { useAuthContext } from "../../contexts/AuthContext";
 import * as cardService from '../../services/christmasCardService';
 import ConfirmDialog from '../Common/ConfirmDialog';
+import { useNotificationContext, types } from '../../contexts/NotificationContext';
 import useCardState from '../../hooks/useCardState';
 
 
 const Details = () => {
     const navigate = useNavigate();
     const { user } = useAuthContext();
+    const { addNotification } = useNotificationContext();
     let { cardId } = useParams();
     const [card, setCard] = useCardState(cardId);
     const [showDeleteDialog, setShowDeleteDialog] = useState(false);
@@ -44,18 +46,17 @@ const Details = () => {
 
     const buyCard = () => {
         // TODO: add check if buys should limited
-
-        let purchases = [...card.purchases, user._id];
-        let buyedCard = { ...card, purchases };
-
-        cardService.buy(cardId, buyedCard, user.accessToken)
-            .then(resData => {
-                console.log(resData);
-                setCard(state => ({
-                    ...state,
-                    purchases
-                }))
-            })
+        addNotification('Thank you for your donate. You sucsessfuly buy a christmas card', types.success)
+        // let purchases = [...card.purchases, user._id];
+        // let buyedCard = { ...card, purchases };
+        // cardService.buy(cardId, buyedCard, user.accessToken)
+        //     .then(resData => {
+        //         console.log(resData);
+        //         setCard(state => ({
+        //             ...state,
+        //             purchases
+        //         }))
+        //     })
     }
 
     const userButtons = <Button className="button" onClick={buyCard}>Buy</Button>;
