@@ -32,13 +32,22 @@ export const destroy = (cardId, token) => {
     }).then(res => res.json());
 };
 
-export const getOne = async (cardId) => {
-    let response = await fetch(`${baseUrl}/christmasCards/${cardId}`)
+
+export const getOne = async (cardId, signal) => {
+    let response = await fetch(`${baseUrl}/christmasCards/${cardId}`, { signal })
 
     let cards = await response.json();
 
     return cards;
 };
+
+// export const getOne = async (cardId) => {
+//     let response = await fetch(`${baseUrl}/christmasCards/${cardId}`)
+
+//     let cards = await response.json();
+
+//     return cards;
+// };
 
 export const buy = (cardId, card, token) => {
     return fetch(`${baseUrl}/christmasCards/${cardId}`, {
