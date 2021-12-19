@@ -1,0 +1,20 @@
+.popup-gallery{
+ 
+   width: auto;
+    background-color: salmon;
+     vertical-align:middle;
+     float: left;
+}
+
+.popup-gallery li{
+    list-style: none;
+   height: auto;
+    vertical-align: auto;
+     display:inline-block;
+   /* height:200px; */
+}
+
+.img-fluid{
+    max-width:100%;
+    max-height:100%;
+}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from "./ChristmasCard";
 import * as christmasCardService from '../../services/christmasCardService';
+import './ChristmasCardList.css'
 
 const ChristmasCardList = ({
     christmasCards
