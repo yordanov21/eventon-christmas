@@ -8,9 +8,8 @@ const Header = () => {
     let userNavigation = (
         <>
             <li><Link className="nav-link" to="/deals">My deals</Link></li>
-            <li><Link className="nav-link" to="/donate">Donate</Link></li>
             <li><Link className="nav-link" to="/create">Create Card</Link></li>
-            <li><Link className="nav-link" to="/testimonial">Testimonial</Link></li>
+            {/* <li><Link className="nav-link" to="/testimonial">Testimonial</Link></li> */}
         </>
     );
 
@@ -33,7 +32,7 @@ const Header = () => {
         <header className="top-header">
             <nav className="navbar header-nav navbar-expand-lg">
                 <div className="container">
-                    <Link to="/" className="navbar-brand" ><img src="images/logo.png" alt="image" /></Link>
+                    <a href="/" className="navbar-brand" ><img src="images/logo.png" alt="image" /></a>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-wd"
                         aria-controls="navbar-wd" aria-expanded="false" aria-label="Toggle navigation">
                         <span></span>
@@ -42,8 +41,9 @@ const Header = () => {
                     </button>
                     <div className="collapse navbar-collapse justify-content-end" id="navbar-wd">
                         <ul className="navbar-nav">
-                            <li><Link className="nav-link active" to="/">Home</Link></li>
-                            <li><Link className="nav-link" to="/wish">Wish</Link></li>
+                            <li><a className="nav-link active" href="/">Home</a></li>
+                            <li><Link className="nav-link" to="/donate">Donate</Link></li>
+                            {/* <li><Link className="nav-link" to="/wish">Wish</Link></li> */}
                             {user.email ? userNavigation : ''}
                             <li><Link className="nav-link" to="/contact">Contact</Link></li>
                         </ul>
