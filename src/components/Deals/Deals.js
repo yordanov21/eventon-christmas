@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import * as christmasCardService from '../../services/christmasCardService';
+import { useAuthContext } from '../../contexts/AuthContext';
 
-import ChristmasCardList from "../ChristmasCardList";
+
+import ChristmasCardList from "./MyCardList";
 
 
 const Deals = () => {
     const [christmasCards, setCards] = useState([]);
+    const { user } = useAuthContext();
 
     useEffect(() => {
-        christmasCardService.getBestCard()
+        christmasCardService.getMyCard(user._id)
             .then(result => {
                 console.log('Cards:');
                 console.log(result)
@@ -25,7 +28,7 @@ const Deals = () => {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="title-box">
-                            <h2>Best Deals</h2>
+                            <h2>My Deals</h2>
                         </div>
                     </div>
                 </div>

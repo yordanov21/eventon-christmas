@@ -35,7 +35,7 @@ export const create = async (cardData, token) => {
 
 export const update = (cardId, cardData) => request.put(`${baseUrl}/christmasCards/${cardId}`, cardData);
 
-export const destroy = (cardId, token) => {
+export const destroy = async (cardId, token) => {
     return fetch(`${baseUrl}/christmasCards/${cardId}`, {
         method: 'DELETE',
         headers: {
@@ -61,7 +61,7 @@ export const getOne = async (cardId, signal) => {
 //     return cards;
 // };
 
-export const buy = (cardId, card, token) => {
+export const buy = async (cardId, card, token) => {
     return fetch(`${baseUrl}/christmasCards/${cardId}`, {
         method: 'PUT',
         headers: {
