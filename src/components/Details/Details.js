@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Button } from "react-bootstrap";
 
 import { useAuthContext } from "../../contexts/AuthContext";
 import * as cardService from '../../services/christmasCardService';
+import * as buyService from '../../services/buyService';
 import ConfirmDialog from '../Common/ConfirmDialog';
 import { useNotificationContext, types } from '../../contexts/NotificationContext';
 import useCardState from '../../hooks/useCardState';
@@ -16,6 +17,13 @@ const Details = () => {
     let { cardId } = useParams();
     const [card, setCard] = useCardState(cardId);
     const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+
+    useEffect(() => {
+        buyService.getCount(cardId)
+            .then(buyCount => {
+                setCard(state => ({ ...state, purchases: buyCount }))
+            })
+    }, [])
 
 
     const deleteHandler = (e) => {
@@ -46,7 +54,15 @@ const Details = () => {
 
     const buyCard = () => {
         // TODO: add check if buys should limited
-        addNotification('Thank you for your donate. You sucsessfuly buy a christmas card', types.success)
+
+
+
+        buyService.buy(user._id, cardId)
+            .then(() => {
+                setCard(state => ({ ...state, purchases: [...state.purchases + user._id] }));
+                addNotification('Thank you for your donate. You sucsessfuly buy a christmas card', types.success);
+            })
+
         // let purchases = [...card.purchases, user._id];
         // let buyedCard = { ...card, purchases };
         // cardService.buy(cardId, buyedCard, user.accessToken)
