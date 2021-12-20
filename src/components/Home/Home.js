@@ -30,8 +30,9 @@ const Home = () => {
             <div className="container-fluid">
                 <div className="row">
                     <div className="pogoSlider" id="js-main-slider">
-                        <div className="pogoSlider-slide" style={{ backgroundImage: "url(" + "images/slider-01.jpg" + ")" }} rounded></div>
-                        <div className="pogoSlider-slide" style={{ backgroundImage: "url(" + "images/slider-01.jpg" + ")" }} rounded></div>
+                        <img className="img-responsive" src="images/slider-01.jpg" alt="#" />
+                        {/* <div className="pogoSlider-slide" style={{ backgroundImage: "url(" + "images/slider-01.jpg" + ")" }} rounded></div>
+                        <div className="pogoSlider-slide" style={{ backgroundImage: "url(" + "images/slider-01.jpg" + ")" }} rounded></div> */}
                     </div>
                 </div>
             </div>
