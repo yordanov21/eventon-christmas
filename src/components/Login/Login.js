@@ -4,6 +4,7 @@ import { useAuthContext } from '../../contexts/AuthContext';
 import { useNotificationContext, types } from '../../contexts/NotificationContext';
 
 import * as authService from '../../services/authService';
+import './Login.css';
 
 const Login = () => {
     const { login } = useAuthContext();
@@ -27,6 +28,7 @@ const Login = () => {
             })
             .catch(err => {
                 // TODO: show notification
+                addNotification(err, types.error);
                 console.log(err);
             })
     };
@@ -36,11 +38,11 @@ const Login = () => {
         <div className="wrapper">
             <form className="form-signin" onSubmit={onLoginHandler} method='POST'>
                 <h2 className="form-signin-heading">Please login</h2>
-                <input type="text" className="form-control" name="email" placeholder="Email" required="" autofocus="" />
-                <input type="password" className="form-control" name="password" placeholder="Password" required="" />
-                <label className="checkbox">
+                <input type="text" className="form-control" name="email" placeholder="Email" required />
+                <input type="password" className="form-control" name="password" placeholder="Password" required />
+                {/* <label className="checkbox">
                     <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe" /> Remember me
-                </label>
+                </label> */}
                 <button className="btn btn-lg btn-primary btn-block btn-authent" type="submit">Login</button>
             </form>
         </div>
