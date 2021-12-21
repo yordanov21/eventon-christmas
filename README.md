@@ -1,3 +1,29 @@
+#Eventom Christmas
+SPA React.js application for the course JS# Web - ReactJS November 2021 @SoftUni
+
+This app is made for educational purposes and the entire code is Open source in GitHub : yordanov21 The site presents a platform for donate by buying a christmas cards and gifts. You can see all christmas cards and gifts and create a new ones. 
+
+Web application use following technologies, frameworks and development techniques 🔨 Built With:
+
+• The application is implemented using React 6 Framework (latest).
+
+• Use bootstrap
+
+• Use react-bootstrap
+
+• Use react-dom
+
+• Use react-router-dom
+
+• Use react-scripts
+
+• use web-vitals
+
+• use softuni-practice-server for back-end part. The connection betwеen front-end and back-end parts is realized with fetch requests.
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
