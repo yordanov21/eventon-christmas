@@ -19,13 +19,13 @@ const Register = () => {
 
 
         if (!email.match(/(.+)@(.+){2,}\.(.+){2,}/)) {
-            addNotification('Email should be in proper format (mailboxname @ domainname) - username@domain.bg"', types.error);
+            addNotification('Email should be in proper format (mailboxname @ domainname) - username@domain.bg"', types.warn);
             return;
         }
 
         if (password.length < 6) {
 
-            addNotification('Password should be min 6 characters long!', types.error);
+            addNotification('Password should be min 6 characters long!', types.warn);
             return;
         }
 

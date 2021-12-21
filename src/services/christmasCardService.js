@@ -34,9 +34,14 @@ export const create = async (cardData, token) => {
         body: JSON.stringify({ ...cardData })
     });
 
-    let result = await response.json();
+    let jsonResult = await response.json();
 
-    return result;
+    if (response.ok) {
+        return jsonResult;
+    } else {
+        throw jsonResult.message;
+    }
+
 };
 
 export const update = (cardId, cardData) => request.put(`${baseUrl}/christmasCards/${cardId}`, cardData);
@@ -68,7 +73,7 @@ export const getOne = async (cardId, signal) => {
 // };
 
 export const buy = async (cardId, card, token) => {
-    return fetch(`${baseUrl}/christmasCards/${cardId}`, {
+    let response = await fetch(`${baseUrl}/christmasCards/${cardId}`, {
         method: 'PUT',
         headers: {
             'X-Authorization': token,
@@ -77,5 +82,13 @@ export const buy = async (cardId, card, token) => {
         body: JSON.stringify({
             card
         })
-    }).then(res => res.json());
+    });
+
+    let jsonResult = await response.json();
+
+    if (response.ok) {
+        return jsonResult;
+    } else {
+        throw jsonResult.message;
+    }
 };

@@ -2,11 +2,14 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as christmasCardService from '../../../services/christmasCardService';
 import { useAuthContext } from '../../../contexts/AuthContext';
+import { useNotificationContext, types } from '../../../contexts/NotificationContext';
+
 
 const Create = () => {
     const { user } = useAuthContext();
     // for redirect 
     const navigate = useNavigate();
+    const { addNotification } = useNotificationContext();
 
     const onchristmasCardCreate = (e) => {
         e.preventDefault();
@@ -18,6 +21,37 @@ const Create = () => {
         let price = formData.get('price');
         let purchases = [];
 
+
+        if (!name.match(/^[a-zA-Z0-9 ]+$/)) {
+            addNotification("Username should consist of english letters, digits and spaces", types.info);
+            return;
+        }
+
+        if (name.length < 5) {
+            addNotification('Card name should be min 5 characters long!', types.info);
+            return;
+        }
+
+        if (!name.match(/^[a-zA-Z0-9 ]+$/)) {
+            addNotification("Description should consist of english letters, digits and spaces", types.info);
+            return;
+        }
+
+        if (description.length < 20) {
+            addNotification(`Description should be min ${20} characters long!`, types.info);
+            return;
+        }
+
+        if (!imageUrl.match(/^https?:\/\//i)) {
+            addNotification("Invalid image url", types.info);
+            return;
+        }
+
+        if (price < 1 || price > 100000) {
+            addNotification("Price should be between 1 and 100 000 $", types.info);
+            return;
+        }
+
         christmasCardService.create({
             name,
             imageUrl,
@@ -28,6 +62,9 @@ const Create = () => {
             .then(result => {
                 navigate('/donate');
             })
+            .catch(err => {
+                addNotification(err, types.error);
+            });
     }
 
     return (
