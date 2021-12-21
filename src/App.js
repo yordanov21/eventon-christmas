@@ -9,7 +9,6 @@ import Donate from './components/Donate';
 import Create from './components/ChristmasCardList/Create';
 import Edit from './components/ChristmasCardList/Edit';
 import Details from './components/Details';
-import Participants from './components/Participants';
 import Contact from './components/Contact';
 import Login from "./components/Login";
 import Logout from './components/Logout';
@@ -35,7 +34,6 @@ function App() {
 							<Route path="/register" element={<Register />} />
 							<Route path="/deals" element={<Deals />} />
 							<Route path="/donate/*" element={<Donate />} />
-							<Route path="/testimonial" element={<Participants />} />
 							<Route path="/contact" element={<Contact />} />
 
 							<Route path="/logout" element={<PrivateRoute><Logout /></PrivateRoute>} />

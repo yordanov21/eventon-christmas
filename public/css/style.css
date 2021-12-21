@@ -1195,7 +1195,7 @@ figure.effect-service:hover {
     Contact
 -------------------------------------------------------------------*/
 
-.contact-box{
+/* .contact-box{
 	padding: 70px 0px;
 }
 
@@ -1308,11 +1308,14 @@ select.form-control:not([size]):not([multiple]){
 
 .help-block ul li{
 	color: red;
-}
+} */
 
-.footer-box {
+
+
+
+/* .footer-box {
     background: #ccc;
-    padding: 20px 0;\
+    padding: 20px 0;
 }
 
 .footer-box .footer-company-name {
@@ -1333,7 +1336,7 @@ select.form-control:not([size]):not([multiple]){
 
 .footer-box .footer-company-name a:hover {
     color: #e91327;
-}
+} */
 
 
 

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import * as christmasCardService from '../../services/christmasCardService';
 
 import ChristmasCardList from "../ChristmasCardList";
+import './Donate.css';
+
 
 const Donate = () => {
 

@@ -11,7 +11,6 @@ const Header = () => {
         <>
             <li><Link className="nav-link" to="/deals">My deals</Link></li>
             <li><Link className="nav-link" to="/create">Create Card</Link></li>
-            {/* <li><Link className="nav-link" to="/testimonial">Testimonial</Link></li> */}
         </>
     );
 
@@ -45,7 +44,6 @@ const Header = () => {
                         <ul className="navbar-nav">
                             <li><Link className="nav-link active" to="/">Home</Link></li>
                             <li><Link className="nav-link" to="/donate">Donate</Link></li>
-                            {/* <li><Link className="nav-link" to="/wish">Wish</Link></li> */}
                             {user.email ? userNavigation : ''}
                             <li><Link className="nav-link" to="/contact">Contact</Link></li>
                         </ul>
