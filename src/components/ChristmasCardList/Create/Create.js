@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import * as christmasCardService from '../../../services/christmasCardService';
 import { useAuthContext } from '../../../contexts/AuthContext';
 import { useNotificationContext, types } from '../../../contexts/NotificationContext';
+import './Create.css';
 
 
 const Create = () => {
@@ -72,31 +73,33 @@ const Create = () => {
         <section id="create-page" className="wrapper">
             <form id="create-form" className="form-create" onSubmit={onchristmasCardCreate} method="POST">
                 <legend>Create new Christmas Card</legend>
-                <p className="create-field">
+                <div className="create-field">
                     <label htmlFor="name">Name</label>
                     <span className="input">
                         <input type="text" name="name" id="name" placeholder="Name" />
                     </span>
-                </p>
-                <p className="create-field">
+                </div>
+                <div className="create-field">
                     <label htmlFor="description">Description</label>
                     <span className="input">
                         <textarea name="description" id="description" placeholder="Description"></textarea>
                     </span>
-                </p>
-                <p className="create-field">
+                </div>
+                <div className="create-field">
                     <label htmlFor="image">Image</label>
                     <span className="input">
                         <input type="text" name="imageUrl" id="image" placeholder="Image" />
                     </span>
-                </p>
-                <p className="create-field">
+                </div>
+                <div className="create-field">
                     <label htmlFor="image">Price</label>
                     <span className="input">
                         <input type="number" name="price" id="price" placeholder="IPrice" />
                     </span>
-                </p>
-                <input className="button submit" type="submit" value="Add Christmas Card" />
+                </div>
+                <div id='btn-container' className='btn-container'>
+                    <input className="button submit" type="submit" value="Add Christmas Card" />
+                </div>
             </form>
         </section>
     );
