@@ -5,6 +5,7 @@ import { useAuthContext } from '../../../contexts/AuthContext';
 import useCardState from '../../../hooks/useCardState';
 import { Alert } from 'react-bootstrap';
 import { useNotificationContext, types } from '../../../contexts/NotificationContext';
+import './Edit.css'
 
 const Edit = () => {
     const navigate = useNavigate();
@@ -83,32 +84,35 @@ const Edit = () => {
         <section id="create-page" className="wrapper">
             <form id="create-form" className="form-create" onSubmit={onchristmasCardEditHandler} method="POST">
                 <legend>Edit Christmas Card</legend>
-                <p className="create-field">
+                <div className="create-field">
                     <label htmlFor="name">Name</label>
                     <span className="input" style={{ backgroundColor: errors.name ? 'red' : 'green' }}>
                         <input type="text" name="name" id="name" defaultValue={card.name} onBlur={nameChangeHandler} style={{ backgroundColor: errors.name ? 'red' : 'green' }} />
                     </span>
                     <Alert variant='danger' show={errors.name}>{errors.name}</Alert>
-                </p>
-                <p className="create-field">
+                </div>
+                <div className="create-field">
                     <label htmlFor="description">Description</label>
                     <span className="input">
                         <textarea name="description" id="description" defaultValue={card.description}></textarea>
                     </span>
-                </p>
-                <p className="create-field">
+                </div>
+                <div className="create-field">
                     <label htmlFor="image">Image</label>
                     <span className="input">
                         <input type="text" name="imageUrl" id="image" defaultValue={card.imageUrl} />
                     </span>
-                </p>
-                <p className="create-field">
+                </div>
+                <div className="create-field">
                     <label htmlFor="image">Price</label>
                     <span className="input">
                         <input type="number" name="price" id="price" defaultValue={card.price} />
                     </span>
-                </p>
-                <input className="button submit" type="submit" value="Edit Christmas Card" />
+                </div>
+                <div id='btn-container' className='btn-container'>
+                    <input className="button submit" type="submit" value="Edit Christmas Card" />
+                </div>
+
             </form>
         </section>
     );

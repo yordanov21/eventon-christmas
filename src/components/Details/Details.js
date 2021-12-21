@@ -8,7 +8,7 @@ import * as buyService from '../../services/buyService';
 import ConfirmDialog from '../Common/ConfirmDialog';
 import { useNotificationContext, types } from '../../contexts/NotificationContext';
 import useCardState from '../../hooks/useCardState';
-
+import './Details.css';
 
 const Details = () => {
     const navigate = useNavigate();
@@ -64,46 +64,37 @@ const Details = () => {
                 setCard(state => ({ ...state, purchases: [...state.purchases, user._id] }));
                 addNotification('Thank you for your donate. You sucsessfuly buy a christmas card', types.success);
             })
-
-        // let purchases = [...card.purchases, user._id];
-        // let buyedCard = { ...card, purchases };
-        // cardService.buy(cardId, buyedCard, user.accessToken)
-        //     .then(resData => {
-        //         console.log(resData);
-        //         setCard(state => ({
-        //             ...state,
-        //             purchases
-        //         }))
-        //     })
     }
 
     const userButtons = <Button className="button" onClick={buyCard}>Buy</Button>;
     return (
         <>
             <ConfirmDialog show={showDeleteDialog} onClose={() => { setShowDeleteDialog(false) }} onSave={deleteHandler} />
-            <section id="details-page" className="details">
-
-                <div className="pet-information">
-                    <h3>Name: {card.name}</h3>
-                    <p className="img"><img src={card.imageUrl} /></p>
-                    <p className="type">Price: {card.price} $</p>
-                    <div className="actions">
-                        {user._id && (user._id === card._ownerId
-                            ? ownerButtons
-                            : userButtons
-                        )}
-                        <div className="likes">
-                            <img className="hearts" src="/images/heart.png" />
-                            <span id="total-likes">People buy this card: {card.purchases?.length || 0}</span>
+            <section id="details-page" className="card-details">
+                <div className="card-img">
+                    <img className="img" src={card.imageUrl} />
+                </div>
+                <div id="card-information" className="card-information">
+                    <div className="main-info">
+                        <h3 className="card-name">Name: {card.name}</h3>
+                        <p className="price">Price: {card.price} $</p>
+                        <div className="actions">
+                            {user._id && (user._id === card._ownerId
+                                ? ownerButtons
+                                : userButtons
+                            )}
+                        </div>
+                        <div className="card-buys">
+                            <span id="total-buys">People buy this card: {card.purchases?.length || 0}</span>
                             <span id="total-ammount">Money collect: {(card.purchases?.length || 0) * card.price} $</span>
                         </div>
-
+                    </div>
+                    <div className="card-description">
+                        <h3>Description:</h3>
+                        <p>{card.description}</p>
                     </div>
                 </div>
-                <div className="pet-description">
-                    <h3>Description:</h3>
-                    <p>{card.description}</p>
-                </div>
+
             </section>
         </>
 
