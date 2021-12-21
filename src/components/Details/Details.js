@@ -5,10 +5,12 @@ import { Button } from "react-bootstrap";
 import { useAuthContext } from "../../contexts/AuthContext";
 import * as cardService from '../../services/christmasCardService';
 import * as buyService from '../../services/buyService';
-import ConfirmDialog from '../Common/ConfirmDialog';
+import ConfirmDialog from '../Common/Comfitm/ConfirmDialog';
 import { useNotificationContext, types } from '../../contexts/NotificationContext';
 import useCardState from '../../hooks/useCardState';
 import './Details.css';
+
+let dialogFlag = 0;
 
 const Details = () => {
     const navigate = useNavigate();
@@ -16,7 +18,10 @@ const Details = () => {
     const { addNotification } = useNotificationContext();
     let { cardId } = useParams();
     const [card, setCard] = useCardState(cardId);
-    const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+    const [showDialog, setshowDialog] = useState(false);
+    const [dialogInfo, setDialogInfo] = useState();
+
+
 
     useEffect(() => {
         buyService.getCount(cardId)
@@ -34,16 +39,25 @@ const Details = () => {
                 navigate('/donate');
             })
             .finally(() => {
-                setShowDeleteDialog(false);
+                setshowDialog(false);
+                setDialogInfo({
+                    title: '',
+                    message: ''
+                })
+                dialogFlag = 0;
             });
     };
 
     const deleteClickHandler = (e) => {
         e.preventDefault();
         console.log(process.env.NODE_ENV);
-        setShowDeleteDialog(true);
+        setshowDialog(true);
+        setDialogInfo({
+            title: 'Delete Forever!',
+            message: 'Are you sure to delete?'
+        })
+        dialogFlag = 1;
     }
-
 
     const ownerButtons = (
         <>
@@ -52,24 +66,45 @@ const Details = () => {
         </>
     );
 
-    const buyCard = () => {
+
+    const buyClickHandler = (e) => {
+        e.preventDefault();
+        console.log(process.env.NODE_ENV);
+        setshowDialog(true);
+        setDialogInfo({
+            title: 'Almost Donate :)',
+            message: 'Are you sure you want to buy this item?'
+        })
+        dialogFlag = 2;
+    }
+
+    const buyHandler = () => {
+
         if (user._id === card._ownerId) {
             return;
         }
-
-
 
         buyService.buy(user._id, cardId)
             .then((res) => {
                 setCard(state => ({ ...state, purchases: [...state.purchases, user._id] }));
                 addNotification('Thank you for your donate. You sucsessfuly buy a christmas card', types.success);
             })
+            .finally(() => {
+                setshowDialog(false);
+                setDialogInfo({
+                    title: '',
+                    message: ''
+                });
+                dialogFlag = 0;
+            });
     }
 
-    const userButtons = <Button className="button" onClick={buyCard}>Buy</Button>;
+
+
+    const userButtons = <Button className="button" onClick={buyClickHandler}>Buy</Button>;
     return (
         <>
-            <ConfirmDialog show={showDeleteDialog} onClose={() => { setShowDeleteDialog(false) }} onSave={deleteHandler} />
+            <ConfirmDialog show={showDialog} onClose={() => { setshowDialog(false) }} onSave={(dialogFlag == 1) ? deleteHandler : buyHandler} dialogInfo={dialogInfo} />
             <section id="details-page" className="card-details">
                 <div className="card-img">
                     <img className="img" src={card.imageUrl} />
