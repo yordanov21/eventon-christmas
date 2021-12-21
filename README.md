@@ -5,23 +5,21 @@ This app is made for educational purposes and the entire code is Open source in 
 
 Web application use following technologies, frameworks and development techniques 🔨 Built With:
 
-• The application is implemented using React 6 Framework (latest).
+• The application is implemented using React 6 Framework (latest) 17.0.2.
 
-• Use bootstrap
+• Use bootstrap 5.1.3
 
-• Use react-bootstrap
+• Use react-bootstrap 2.0.3
 
-• Use react-dom
+• Use react-dom 7.0.2 
 
-• Use react-router-dom
+• Use react-router-dom 6.0.2
+ 
+• Use react-scripts 4.0.3
 
-• Use react-scripts
-
-• use web-vitals
+• use web-vitals 1.1.2
 
 • use softuni-practice-server for back-end part. The connection betwеen front-end and back-end parts is realized with fetch requests.
-
-
 
 
 # Getting Started with Create React App
