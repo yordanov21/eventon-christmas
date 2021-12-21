@@ -314,7 +314,7 @@ button:focus{
     HEADER
 -------------------------------------------------------------------*/
 
-.top-header .navbar{
+/* .top-header .navbar{
 	padding: 5px 0px;
 }
 
@@ -404,7 +404,7 @@ button:focus{
 
 .navbar-toggler:hover span{
 	background: #e91327;
-}
+} */
 
 
 /*------------------------------------------------------------------
