@@ -31,7 +31,6 @@ const Donate = () => {
                 </div>
                 <div className="row">
                     <ChristmasCardList christmasCards={christmasCards} />
-
                 </div>
             </div>
         </div>

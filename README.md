@@ -1,4 +1,4 @@
-#Eventom Christmas
+# Eventom Christmas
 SPA React.js application for the course JS# Web - ReactJS November 2021 @SoftUni
 
 This app is made for educational purposes and the entire code is Open source in GitHub : yordanov21 The site presents a platform for donate by buying a christmas cards and gifts. You can see all christmas cards and gifts and create a new ones. 

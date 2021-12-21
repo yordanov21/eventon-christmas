@@ -5,28 +5,18 @@ const MyCard = ({
 }) => {
 
     return (
-        <Link to={`/details/${card._id}`}>
-            <div className="col-lg-6 col-sm-6">
-                <figure className="effect-service">
-                    <img src={card.imageUrl} alt="" />
-                    <figcaption>
-                        <h2>{card.name}</h2>
-                        <p>{card.price}</p>
+        <li>
+            <Link to={`/details/${card._id}`} className="my-card">
+                <img className="img-fluid-2" src={card.imageUrl} alt="single image" />
 
-                    </figcaption>
-                </figure>
-            </div>
-        </Link>
+                <span className="overlay">
+                    <p>Name: {card.name}</p>
+                    <p>Price: {card.price}$</p>
+                </span>
 
 
-        // <li>
-        //     <Link to={`/details/${card._id}`}>
-        //         <img className="img-fluid" src={card.imageUrl} alt="single image" />
-        //         <span className="overlay"><i className="fa fa-picture-o" aria-hidden="true"></i></span>
-        //         <p>Name: {card.name}</p>
-        //         <p>Card for {card.price}$</p>
-        //     </Link>
-        // </li>
+            </Link>
+        </li>
     );
 };
 

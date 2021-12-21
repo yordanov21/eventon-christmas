@@ -1,6 +1,8 @@
 //import { useEffect, useState } from "react";
 import Card from "../MyCard";
+import './MyCardList.css'
 //import * as christmasCardService from '../../services/christmasCardService';
+
 
 const ChristmasCardList = ({
     christmasCards
@@ -10,9 +12,9 @@ const ChristmasCardList = ({
             {
                 christmasCards.length > 0
                     ? (
-                        <>
+                        <ul className="popup-gallery-2 clearfix">
                             {christmasCards.map(x => <Card key={x._id} card={x} />)}
-                        </>
+                        </ul>
                     )
                     : <p className="no-chritsmas-card">No card available!</p>
             }
