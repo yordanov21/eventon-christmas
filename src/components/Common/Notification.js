@@ -12,9 +12,8 @@ const Notification = () => {
     return (
         <Toast className="notification d-inline-block m-1" bg={notification.type} onClose={hideNotification}>
             <Toast.Header>
-                <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-                <strong className="me-auto">Bootstrap</strong>
-                <small>11 mins ago</small>
+                {/* <img src="images/apple-touch-icon.png" className="rounded me-2" alt="" /> */}
+                <strong className="me-auto">  Merry Christmas! Xo-xo-xo!!!</strong>
             </Toast.Header>
             <Toast.Body>
                 {notification.message}

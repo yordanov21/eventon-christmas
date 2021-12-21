@@ -1,6 +1,7 @@
 .notification {
     position: absolute;
-    top: 200px;
+    top: 120px;
     right: 30px;
     padding: 25px;
+    border-radius: 10px;
 }

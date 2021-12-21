@@ -13,7 +13,27 @@ const Register = () => {
     const registerSubmitHandler = (e) => {
         e.preventDefault();
 
-        let { email, password, rememberMe } = Object.fromEntries(new FormData(e.currentTarget));
+        let { email, password, repassword, rememberMe } = Object.fromEntries(new FormData(e.currentTarget));
+
+        console.log(Object.fromEntries(new FormData(e.currentTarget)));
+
+
+        if (!email.match(/(.+)@(.+){2,}\.(.+){2,}/)) {
+            addNotification('Email should be in proper format (mailboxname @ domainname) - username@domain.bg"', types.error);
+            return;
+        }
+
+        if (password.length < 6) {
+
+            addNotification('Password should be min 6 characters long!', types.error);
+            return;
+        }
+
+        if (password !== repassword) {
+
+            addNotification('Password and Re-Password should match!', types.error);
+            return;
+        }
 
         authService.register(email, password)
             .then(authData => {
@@ -21,12 +41,12 @@ const Register = () => {
                     login(authData);
                 }
 
-                navigate('/');
+                addNotification('You have successfully registered', types.success);
+                navigate('/login');
             })
             .catch(err => {
                 console.log('Catch error: ', err);
                 addNotification(err, types.error);
-                // navigate('/');
             });
     }
 
