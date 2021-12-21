@@ -4,7 +4,7 @@ import { NotificationProvider } from './contexts/NotificationContext';
 
 import Header from "./components/Header";
 import Home from './components/Home';
-import Deals from './components/Deals';
+import MyCards from './components/MyCards';
 import Donate from './components/Donate';
 import Create from './components/ChristmasCardList/Create';
 import Edit from './components/ChristmasCardList/Edit';
@@ -32,18 +32,16 @@ function App() {
 							<Route path="/" element={<Home />} />
 							<Route path="/login" element={<Login />} />
 							<Route path="/register" element={<Register />} />
-							<Route path="/deals" element={<Deals />} />
 							<Route path="/donate/*" element={<Donate />} />
 							<Route path="/contact" element={<Contact />} />
 
+							<Route path="/my-cards" element={<PrivateRoute><MyCards /></PrivateRoute>} />
 							<Route path="/logout" element={<PrivateRoute><Logout /></PrivateRoute>} />
 							<Route path="/create" element={<PrivateRoute><Create /></PrivateRoute>} />
 							<Route path="/details/:cardId" element={<PrivateRoute><Details /></PrivateRoute>} />
 							<Route path="/edit/:cardId" element={<PrivateRoute><Edit /></PrivateRoute>} />
 
-							{/* <Route element={<PrivateRoute />}>
-							
-							</Route> */}
+
 						</Routes>
 						<Footer />
 					</main>

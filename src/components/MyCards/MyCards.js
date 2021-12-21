@@ -6,7 +6,7 @@ import { useAuthContext } from '../../contexts/AuthContext';
 import ChristmasCardList from "./MyCardList";
 
 
-const Deals = () => {
+const MyCards = () => {
     const [christmasCards, setCards] = useState([]);
     const { user } = useAuthContext();
 
@@ -28,7 +28,7 @@ const Deals = () => {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="title-box">
-                            <h2>My Deals</h2>
+                            <h2>My Cards</h2>
                         </div>
                     </div>
                 </div>
@@ -42,4 +42,4 @@ const Deals = () => {
     );
 };
 
-export default Deals;
+export default MyCards;

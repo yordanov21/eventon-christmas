@@ -9,7 +9,7 @@ const Header = () => {
 
     let userNavigation = (
         <>
-            <li><Link className="nav-link" to="/deals">My deals</Link></li>
+            <li><Link className="nav-link" to="/my-cards">My Cards</Link></li>
             <li><Link className="nav-link" to="/create">Create Card</Link></li>
         </>
     );
