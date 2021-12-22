@@ -4,7 +4,7 @@
 }
 
 .gallery-box ul{}
-.gallery-box ul li {
+.gallery-box div.container div ul li {
 
     position: relative;
     width: 31.33%;

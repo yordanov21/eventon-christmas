@@ -33,7 +33,7 @@ const MyGifts = () => {
                     </div>
                 </div>
 
-                <div className="row">
+                <div className="row2">
                     <ChristmasGiftList christmasGifts={christmasGifts} />
                 </div>
 

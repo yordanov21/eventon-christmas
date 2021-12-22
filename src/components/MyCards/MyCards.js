@@ -33,7 +33,7 @@ const MyCards = () => {
                     </div>
                 </div>
 
-                <div className="row">
+                <div className="row2">
                     <ChristmasCardList christmasCards={christmasCards} />
                 </div>
 
