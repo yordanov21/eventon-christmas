@@ -1,0 +1,97 @@
+section.card-details {
+
+  /* max-width:500px;
+    padding: 15px 35px 45px;
+    margin: auto;
+    background-color: rgb(250, 56, 56);
+    border: 1px solid rgba(0,0,0,0.1);  
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;  */
+    display: flex;
+    margin-top: 150px;
+    margin-bottom: 20px;
+    /* flex-direction: row; */
+    border: 20px solid rgba(0,0,0,0.1);  
+    width: 50%;
+    /* height: 50%; */
+    background-color: rgb(252, 253, 252);
+}
+
+div.card-img {
+    
+    margin:0;
+    padding: 0;
+    width: 50%;
+    /* height: 500px; */
+}
+
+div.card-img img {
+    width: 100%; /* or any custom size */
+    height: 100%; 
+    object-fit: contain;
+    border-top: 4px solid rgb(36, 36, 36);
+    border-bottom: 4px solid rgb(36, 36, 36);
+    border-left: 4px solid rgb(36, 36, 36);
+  
+
+    
+} 
+
+.card-information {
+    margin:0;
+    width: 50%;
+    /* height: 500px; */
+    padding: 10px;
+    border-top: 4px solid rgb(36, 36, 36);
+    border-bottom: 4px solid rgb(36, 36, 36);
+    border-right: 4px solid rgb(36, 36, 36);
+    border-left: 1px solid rgb(151, 150, 150);
+    background-color: rgb(233, 232, 232);
+} 
+
+
+
+.card-details {
+    text-align: center;
+    border: 3px solid green;
+    padding: 150px;
+    display: inline-block;
+    margin: auto;
+}
+
+div.card-bays {
+    display: inline-block;
+    justify-content: space-between;
+}
+
+
+
+.button {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    border-radius: 0.4rem;
+    text-decoration: none;
+    font-weight: bold;
+    background: rgb(55, 161, 248);
+    color: rgb(255, 255, 255);
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    margin: 10px;
+}
+
+.button:hover {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    border-radius: 0.4rem;
+    text-decoration: none;
+    font-weight: bold;
+    background: rgb(238, 30, 30);
+    color: rgb(247, 239, 239);
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    margin: 10px;
+}

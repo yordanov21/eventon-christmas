@@ -9,3 +9,12 @@ export const getCount = (cardId) => {
     return request.get(`${baseUrl}/buys?select=userId&where=${query}`)
         .then(res => res.map(x => x.userId));
 };
+
+
+export const buyGift = (userId, giftId) => request.post(`${baseUrl}/buysGift`, { userId, giftId });
+export const getCountGift = (giftId) => {
+    const query = encodeURIComponent(`giftId="${giftId}"`);
+
+    return request.get(`${baseUrl}/buysGift?select=userId&where=${query}`)
+        .then(res => res.map(x => x.userId));
+};

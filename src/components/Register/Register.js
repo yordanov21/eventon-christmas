@@ -39,10 +39,12 @@ const Register = () => {
             .then(authData => {
                 if (rememberMe) {
                     login(authData);
+                    addNotification('You have successfully registered and login', types.success);
+                    navigate('/');
+                } else {
+                    addNotification('You have successfully registered', types.success);
+                    navigate('/login');
                 }
-
-                addNotification('You have successfully registered', types.success);
-                navigate('/login');
             })
             .catch(err => {
                 console.log('Catch error: ', err);

@@ -1,0 +1,19 @@
+.popup-gallery{
+ 
+   /* width: auto;
+    background-color: salmon;
+     vertical-align:middle;
+     float: left; */
+}
+
+.popup-gallery li a{
+    
+   height:500px;
+ 
+}
+
+.popup-gallery li a img.img-fluid {
+    
+    /* width: 100%; */
+    height: 100%;
+}
