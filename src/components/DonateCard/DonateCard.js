@@ -27,7 +27,7 @@ const DonateCard = () => {
                 <div className="row">
                     <div className="col-lg-12">
                         <div className="title-box">
-                            <h2>Donate</h2>
+                            <h2>Donate Card</h2>
                         </div>
                     </div>
                 </div>

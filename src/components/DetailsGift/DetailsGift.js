@@ -121,6 +121,8 @@ const DetailsGift = () => {
                         </div>
                         <div className="card-buys">
                             <span id="total-buys">People buy this card: {gift.purchases?.length || 0}</span>
+                        </div>
+                        <div className="card-buys">
                             <span id="total-ammount">Money collect: {(gift.purchases?.length || 0) * gift.price} $</span>
                         </div>
                     </div>

@@ -44,8 +44,6 @@ const Home = () => {
                 <div className="row">
                     <div className="pogoSlider" id="js-main-slider">
                         <img className="img-responsive" src="images/slider-01.jpg" alt="#" />
-                        {/* <div className="pogoSlider-slide" style={{ backgroundImage: "url(" + "images/slider-01.jpg" + ")" }} rounded></div>
-                        <div className="pogoSlider-slide" style={{ backgroundImage: "url(" + "images/slider-01.jpg" + ")" }} rounded></div> */}
                     </div>
                 </div>
             </div>

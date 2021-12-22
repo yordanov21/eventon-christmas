@@ -48,8 +48,8 @@ const Create = () => {
             return;
         }
 
-        if (price < 1 || price > 100000) {
-            addNotification("Price should be between 1 and 100 000 $", types.info);
+        if (price < 50 || price > 5000) {
+            addNotification("Price should be between 50 and 5000 $", types.info);
             return;
         }
 
@@ -98,7 +98,7 @@ const Create = () => {
                     </span>
                 </div>
                 <div id='btn-container' className='btn-container'>
-                    <input className="button submit" type="submit" value="Add Christmas Card" />
+                    <input className="button submit" type="submit" value="Add Christmas Gift" />
                 </div>
             </form>
         </section>

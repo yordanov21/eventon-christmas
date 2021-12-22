@@ -99,3 +99,9 @@
     width: 100%;
 }
 
+p.no-chritsmas-card {
+   text-align: center;
+   text-transform:capitalize;
+   font-size: 2em;
+}
+

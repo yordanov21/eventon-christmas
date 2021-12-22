@@ -6,7 +6,7 @@ const MyCard = ({
 
     return (
         <li>
-            <Link to={`/details/${card._id}`} className="my-card">
+            <Link to={`/details-card/${card._id}`} className="my-card">
                 <img className="img-fluid-2" src={card.imageUrl} alt="single image" />
 
                 <span className="overlay">

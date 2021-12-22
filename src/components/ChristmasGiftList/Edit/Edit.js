@@ -53,8 +53,8 @@ const Edit = () => {
             return;
         }
 
-        if (price < 50 || price > 2000) {
-            addNotification("Price should be between 50 and 2000 $", types.info);
+        if (price < 50 || price > 5000) {
+            addNotification("Price should be between 50 and 5000 $", types.info);
             return;
         }
         //

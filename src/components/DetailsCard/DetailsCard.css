@@ -49,8 +49,6 @@ div.card-img img {
     background-color: rgb(233, 232, 232);
 } 
 
-
-
 .card-details {
     text-align: center;
     border: 3px solid green;
@@ -58,13 +56,11 @@ div.card-img img {
     display: inline-block;
     margin: auto;
 }
-
-div.card-bays {
-    display: inline-block;
-    justify-content: space-between;
+ 
+.main-info div.card-bays span {
+    display:flex;
+    flex-direction: column;  
 }
-
-
 
 .button {
     display: inline-block;
