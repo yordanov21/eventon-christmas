@@ -61,7 +61,7 @@ const Edit = () => {
 
         christmasCardService.update(card._id, cardData)
             .then(result => {
-                navigate('/donate');
+                navigate('/donate-card');
             })
             .catch(err => {
                 addNotification(err, types.error);
@@ -72,8 +72,8 @@ const Edit = () => {
 
     const nameChangeHandler = (e) => {
         let currentName = e.target.value;
-        if (currentName.length < 3) {
-            setErrors(state => ({ ...state, name: 'Your name sould be at least 3 characters' }))
+        if (currentName.length < 5) {
+            setErrors(state => ({ ...state, name: 'Your name sould be at least 5 characters' }))
         } else {
             setErrors(state => ({ ...state, name: null }))
         }
@@ -87,9 +87,10 @@ const Edit = () => {
                 <div className="create-field">
                     <label htmlFor="name">Name</label>
                     <span className="input" style={{ backgroundColor: errors.name ? 'red' : 'green' }}>
-                        <input type="text" name="name" id="name" defaultValue={card.name} onBlur={nameChangeHandler} style={{ backgroundColor: errors.name ? 'red' : 'green' }} />
+                        {/* <input type="text" name="name" id="name" defaultValue={card.name} onBlur={nameChangeHandler} style={{ color: errors.name ? 'red' : 'green' }} /> */}
+                        <input type="text" name="name" id="name" defaultValue={card.name} />
                     </span>
-                    <Alert variant='danger' show={errors.name}>{errors.name}</Alert>
+                    {/* <Alert variant='danger' show={errors.name}>{errors.name}</Alert> */}
                 </div>
                 <div className="create-field">
                     <label htmlFor="description">Description</label>
@@ -104,9 +105,9 @@ const Edit = () => {
                     </span>
                 </div>
                 <div className="create-field">
-                    <label htmlFor="image">Price</label>
+                    <label htmlFor="image">Price (between 1 and 100$)</label>
                     <span className="input">
-                        <input type="number" name="price" id="price" defaultValue={card.price} />
+                        <input type="number" name="price" id="price" defaultValue={card.price} min='1' max='100' />
                     </span>
                 </div>
                 <div id='btn-container' className='btn-container'>

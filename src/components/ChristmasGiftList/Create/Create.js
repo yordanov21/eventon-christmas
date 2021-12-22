@@ -92,9 +92,9 @@ const Create = () => {
                     </span>
                 </div>
                 <div className="create-field">
-                    <label htmlFor="image">Price</label>
+                    <label htmlFor="image">Price (between 50 and 5000$)</label>
                     <span className="input">
-                        <input type="number" name="price" id="price" placeholder="IPrice" />
+                        <input type="number" name="price" id="price" placeholder="IPrice" min='50' max='5000' />
                     </span>
                 </div>
                 <div id='btn-container' className='btn-container'>

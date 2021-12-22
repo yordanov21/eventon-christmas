@@ -87,7 +87,8 @@ const Edit = () => {
                 <div className="create-field">
                     <label htmlFor="name">Name</label>
                     <span className="input" style={{ backgroundColor: errors.name ? 'red' : 'green' }}>
-                        <input type="text" name="name" id="name" defaultValue={gift.name} onBlur={nameChangeHandler} style={{ backgroundColor: errors.name ? 'red' : 'green' }} />
+                        {/* <input type="text" name="name" id="name" defaultValue={gift.name} onBlur={nameChangeHandler} style={{ backgroundColor: errors.name ? 'red' : 'green' }} /> */}
+                        <input type="text" name="name" id="name" defaultValue={gift.name} />
                     </span>
                     <Alert variant='danger' show={errors.name}>{errors.name}</Alert>
                 </div>
@@ -104,9 +105,9 @@ const Edit = () => {
                     </span>
                 </div>
                 <div className="create-field">
-                    <label htmlFor="image">Price</label>
+                    <label htmlFor="image">Price (between 50 and 5000$)</label>
                     <span className="input">
-                        <input type="number" name="price" id="price" defaultValue={gift.price} />
+                        <input type="number" name="price" id="price" defaultValue={gift.price} min='50' max='5000' />
                     </span>
                 </div>
                 <div id='btn-container' className='btn-container'>

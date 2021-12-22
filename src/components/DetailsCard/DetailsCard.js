@@ -36,7 +36,7 @@ const DetailsCard = () => {
 
         cardService.destroy(cardId, user.accessToken)
             .then(() => {
-                navigate('/donate');
+                navigate('/donate-card');
             })
             .finally(() => {
                 setshowDialog(false);
