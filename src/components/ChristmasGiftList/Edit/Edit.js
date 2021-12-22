@@ -107,7 +107,7 @@ const Edit = () => {
                 <div className="create-field">
                     <label htmlFor="image">Price (between 50 and 5000$)</label>
                     <span className="input">
-                        <input type="number" name="price" id="price" defaultValue={gift.price} min='50' max='5000' />
+                        <input type="number" name="price" id="price" defaultValue={gift.price} />
                     </span>
                 </div>
                 <div id='btn-container' className='btn-container'>
