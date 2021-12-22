@@ -1922,3 +1922,7 @@
 	color: red;
 	font-weight: bold;
 }
+
+.home-navigation a{
+    margin-right: 30px;
+}

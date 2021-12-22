@@ -6,7 +6,7 @@ const ChristmasCard = ({
 
     return (
         <li>
-            <Link to={`/details/${card._id}`}>
+            <Link to={`/details-card/${card._id}`}>
                 <img className="img-fluid" src={card.imageUrl} alt="single image" />
                 <span className="overlay"><i className="fa fa-picture-o" aria-hidden="true"></i></span>
                 <p>Name: {card.name}</p>

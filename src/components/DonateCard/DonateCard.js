@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import * as christmasCardService from '../../services/christmasCardService';
 
 import ChristmasCardList from "../ChristmasCardList";
-import './Donate.css';
+import './DonateCard.css';
 
 
-const Donate = () => {
+const DonateCard = () => {
 
     const [christmasCards, setCards] = useState([]);
 
@@ -39,4 +39,4 @@ const Donate = () => {
     );
 };
 
-export default Donate;
+export default DonateCard;

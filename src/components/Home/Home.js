@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import * as christmasCardService from '../../services/christmasCardService';
+import * as christmasGiftService from '../../services/christmasGiftService';
 import { useAuthContext } from "../../contexts/AuthContext";
 import { Link } from 'react-router-dom';
 
@@ -9,6 +10,7 @@ import './Home.css'
 const Home = () => {
     const { user } = useAuthContext();
     const [christmasCards, setCards] = useState([]);
+    const [christmasGifts, setGifts] = useState([]);
 
 
     useEffect(() => {
@@ -17,6 +19,17 @@ const Home = () => {
                 console.log('Cards:');
                 console.log(result)
                 setCards(result)
+            })
+            .catch(err => {
+                console.log('Error: ', err);
+            });
+
+
+        christmasGiftService.getMyGift(user._id)
+            .then(result => {
+                console.log('Gifts:');
+                console.log(result)
+                setGifts(result)
             })
             .catch(err => {
                 console.log('Error: ', err);
@@ -68,9 +81,14 @@ const Home = () => {
                                     <p>{user.email} you are one of our donors. Our Christmas cards bring joy and happiness to many
                                         children around the world.
                                     </p>
-                                    <p>{user.email}, You create a <span className="count">{christmasCards.length}</span> christmas card!
+                                    <p>{user.email}, You create <span className="count">{christmasCards.length}</span> christmas card!
                                     </p>
-                                    <Link to="/deals" className="hvr-radial-out button-theme">My card</Link>
+                                    <p>And amazing <span className="count">{christmasGifts.length}</span> christmas gifts!</p>
+                                    <div className="home-navigation">
+                                        <Link to="/my-cards" className="hvr-radial-out button-theme">My cards</Link>
+                                        <Link to="/my-gifts" className="hvr-radial-out button-theme">My gifts</Link>
+                                    </div>
+
                                 </div>
 
                             </div>

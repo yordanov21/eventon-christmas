@@ -11,7 +11,7 @@ const Header = () => {
         <>
             <li><Link className="nav-link" to="/my-cards">My Cards</Link></li>
             <li><Link className="nav-link" to="/my-gifts">My Gifts</Link></li>
-            <li><Link className="nav-link" to="/create">Create Card</Link></li>
+            <li><Link className="nav-link" to="/create-card">Create Card</Link></li>
             <li><Link className="nav-link" to="/create-gift">Create Gift</Link></li>
         </>
     );
@@ -45,7 +45,7 @@ const Header = () => {
                     <div className="collapse navbar-collapse justify-content-end" id="navbar-wd">
                         <ul className="navbar-nav">
                             <li><Link className="nav-link active" to="/">Home</Link></li>
-                            <li><Link className="nav-link" to="/donate">Donate</Link></li>
+                            <li><Link className="nav-link" to="/donate-card">Donate Card</Link></li>
                             <li><Link className="nav-link" to="/donate-gift">Donate Gift</Link></li>
                             {user.email ? userNavigation : ''}
                             <li><Link className="nav-link" to="/contact">Contact</Link></li>

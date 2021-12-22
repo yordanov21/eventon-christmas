@@ -8,11 +8,11 @@ import * as buyService from '../../services/buyService';
 import ConfirmDialog from '../Common/Comfitm/ConfirmDialog';
 import { useNotificationContext, types } from '../../contexts/NotificationContext';
 import useCardState from '../../hooks/useCardState';
-import './Details.css';
+import './DetailsCard.css';
 
 let dialogFlag = 0;
 
-const Details = () => {
+const DetailsCard = () => {
     const navigate = useNavigate();
     const { user } = useAuthContext();
     const { addNotification } = useNotificationContext();
@@ -61,7 +61,7 @@ const Details = () => {
 
     const ownerButtons = (
         <>
-            <Link className="button" to={`/edit/${cardId}`}>Edit</Link>
+            <Link className="button" to={`/edit-card/${cardId}`}>Edit</Link>
             <a className="button" href="#" onClick={deleteClickHandler}>Delete</a>
         </>
     );
@@ -137,4 +137,4 @@ const Details = () => {
     );
 };
 
-export default Details;
+export default DetailsCard;
